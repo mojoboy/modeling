@@ -1,6 +1,7 @@
 // Builds the portfolio from content.js (the words) and media.json (the photos and videos),
 // then wires up the motion: the dot field in the hero, scroll reveals, the "View" cursor and the viewer.
 import { PROFILE, STATS, SHOOTS, IN_EDIT, AVAILABLE_FOR } from './content.js';
+import { initBook } from './book.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -243,7 +244,7 @@ function activeNav() {
     chips.forEach(c => c.classList.toggle('on', c.getAttribute('href') === '#' + e.target.id));
   }), { rootMargin: '-45% 0px -50% 0px' });
   // 'top' (the hero) matches no chip, so scrolling back up clears the highlight
-  ['top', 'work', 'motion', 'about', 'contact'].forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
+  ['top', 'book', 'work', 'motion', 'about', 'contact'].forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
 }
 
 /* ---------- Full-screen viewer ---------- */
@@ -352,6 +353,7 @@ function dotField() {
   const media = await loadMedia();
   buildHero(media);
   buildStrip(media);
+  initBook(media);
   buildShoots(media);
   buildReels(media);
   buildAbout(media);

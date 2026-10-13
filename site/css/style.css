@@ -74,8 +74,8 @@ button { font: inherit; color: inherit; }
   transition: transform .5s var(--ease);
   white-space: nowrap;
 }
-a:hover .roll > span, a:focus-visible .roll > span,
-a:hover .roll::after, a:focus-visible .roll::after { transform: translateY(-100%); }
+a:hover .roll > span, a:focus-visible .roll > span, button:hover .roll > span, button:focus-visible .roll > span,
+a:hover .roll::after, a:focus-visible .roll::after, button:hover .roll::after, button:focus-visible .roll::after { transform: translateY(-100%); }
 
 /* ---------- Header ---------- */
 
@@ -150,7 +150,7 @@ a:hover .roll::after, a:focus-visible .roll::after { transform: translateY(-100%
 /* "( See the work )": parenthesis buttons, Porta-style */
 .paren {
   display: inline-flex; align-items: center;
-  height: 48px; padding: 0 22px; border-radius: 999px;
+  height: 48px; padding: 0 22px; border: 0; border-radius: 999px;
   background: var(--ink); color: var(--bg);
   font-size: 15px; font-weight: 500; text-decoration: none; cursor: pointer;
   transition: background-color .3s ease, color .3s ease, transform .3s var(--ease);

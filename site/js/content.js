@@ -39,6 +39,16 @@ export const STATS = [
 // Newest shoot first.
 export const SHOOTS = [
   {
+    id: 'selects',
+    title: 'Selects',
+    year: 2026,
+    tags: ['Runway', 'Street', 'Editorial'],
+    note: 'A hand-painted look on the runway, a black suit in the library, a No. 10 jersey in late sun.',
+    cover: 'runway_yellow',
+    media: ['runway_yellow', 'library_suit', 'jersey_10'],
+    color: '#FFC23D',
+  },
+  {
     id: 'courtyard',
     title: 'Courtyard',
     year: 2026,
@@ -50,10 +60,30 @@ export const SHOOTS = [
   },
 ];
 
+// The book: the flip-through portfolio. Pages turn in this order, after the cover and an intro page;
+// a stats card and the back cover close it. Add or reorder media ids here; any photo or clip works.
+export const BOOK = [
+  'runway_yellow',
+  'img_1785',
+  'library_suit',
+  'img_1782',
+  'img_1781',
+  'jersey_10',
+  'img_1783',
+  'img_1786',
+];
+
+// Optional per-piece captions in the book and viewer (otherwise the shoot's title is used).
+export const CAPTIONS = {
+  runway_yellow: 'Runway · the DO',
+  library_suit: 'Library walk',
+  jersey_10: 'No. 10',
+};
+
 // Shoots still being edited: shown as "developing" cards so the page doesn't look finished-but-thin.
 export const IN_EDIT = [
-  { title: 'Shoot 02', note: 'In the edit' },
-  { title: 'Shoot 03', note: 'In the edit' },
+  { title: 'Next shoot', note: 'In the edit' },
+  { title: 'Coming soon', note: 'In the edit' },
 ];
 
 export const AVAILABLE_FOR = ['Editorial', 'Lookbook', 'Campaign', 'Runway', 'Brand content', 'Video'];

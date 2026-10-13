@@ -1,5 +1,14 @@
 [
  {
+  "type": "photo",
+  "src": "media/library_suit.webp",
+  "small": "media/library_suit-sm.webp",
+  "fallback": "media/library_suit.jpg",
+  "w": 923,
+  "h": 2000,
+  "id": "library_suit"
+ },
+ {
   "type": "video",
   "src": "media/img_1782.mp4",
   "poster": "media/img_1782-poster.jpg",
@@ -17,6 +26,15 @@
   "id": "img_1785"
  },
  {
+  "type": "photo",
+  "src": "media/runway_yellow.webp",
+  "small": "media/runway_yellow-sm.webp",
+  "fallback": "media/runway_yellow.jpg",
+  "w": 1280,
+  "h": 1621,
+  "id": "runway_yellow"
+ },
+ {
   "type": "video",
   "src": "media/img_1786.mp4",
   "poster": "media/img_1786-poster.jpg",
@@ -32,6 +50,15 @@
   "w": 1500,
   "h": 2000,
   "id": "img_1781"
+ },
+ {
+  "type": "photo",
+  "src": "media/jersey_10.webp",
+  "small": "media/jersey_10-sm.webp",
+  "fallback": "media/jersey_10.jpg",
+  "w": 601,
+  "h": 2000,
+  "id": "jersey_10"
  },
  {
   "type": "photo",

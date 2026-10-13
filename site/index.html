@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Host+Grotesk:wght@300..700&family=Newsreader:ital,opsz,wght@1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/book.css">
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
@@ -31,10 +32,11 @@
       <span class="roll" data-text="David Babafemi"><span>David Babafemi</span></span>
     </a>
     <nav class="top-nav" aria-label="Sections">
-      <a class="chip" href="#work"><span class="roll" data-text="Work"><span>Work</span></span><sup>01</sup></a>
-      <a class="chip" href="#motion"><span class="roll" data-text="Motion"><span>Motion</span></span><sup>02</sup></a>
-      <a class="chip" href="#about"><span class="roll" data-text="About"><span>About</span></span><sup>03</sup></a>
-      <a class="chip" href="#contact"><span class="roll" data-text="Contact"><span>Contact</span></span><sup>04</sup></a>
+      <a class="chip" href="#book"><span class="roll" data-text="Book"><span>Book</span></span><sup>01</sup></a>
+      <a class="chip" href="#work"><span class="roll" data-text="Work"><span>Work</span></span><sup>02</sup></a>
+      <a class="chip" href="#motion"><span class="roll" data-text="Motion"><span>Motion</span></span><sup>03</sup></a>
+      <a class="chip" href="#about"><span class="roll" data-text="About"><span>About</span></span><sup>04</sup></a>
+      <a class="chip" href="#contact"><span class="roll" data-text="Contact"><span>Contact</span></span><sup>05</sup></a>
     </nav>
     <p class="top-clock eyebrow"><span class="live" aria-hidden="true"></span><span data-clock>DC</span></p>
   </header>
@@ -51,7 +53,7 @@
         <div class="hero-row reveal">
           <p class="hero-lede" data-tagline></p>
           <div class="hero-ctas">
-            <a class="paren" href="#work"><span class="roll" data-text="See the work"><span>See the work</span></span></a>
+            <a class="paren" href="#book"><span class="roll" data-text="Open the book"><span>Open the book</span></span></a>
             <a class="paren paren-ghost" data-instagram target="_blank" rel="noopener"><span class="roll" data-text="Instagram ↗"><span>Instagram ↗</span></span></a>
           </div>
         </div>
@@ -59,14 +61,35 @@
       <figure class="hero-reel reveal" data-hero-reel>
         <span class="sticker" data-handle>@mb.dayy</span>
       </figure>
-      <a class="scroll-cue eyebrow" href="#work">Scroll</a>
+      <a class="scroll-cue eyebrow" href="#book">Scroll</a>
     </section>
 
     <div class="strip" aria-hidden="true"><div class="strip-track" data-strip></div></div>
 
-    <section class="section work" id="work" aria-labelledby="work-title">
+    <section class="section book-section" id="book" aria-labelledby="book-title">
       <div class="section-head reveal">
         <p class="eyebrow">(01)</p>
+        <h2 id="book-title">The <span class="serif">book</span></h2>
+        <p class="section-note">Click or swipe to turn the pages. The arrow keys work too, and the strip below jumps anywhere.</p>
+      </div>
+      <div class="book-stage" data-book-stage>
+        <div class="book" data-book tabindex="0" role="group" aria-roledescription="book" aria-label="David Babafemi’s book. Use the left and right arrow keys to turn the pages."></div>
+      </div>
+      <div class="book-progress" aria-hidden="true"><span data-book-progress></span></div>
+      <div class="book-controls">
+        <button type="button" class="book-btn" data-book-prev aria-label="Previous page">←</button>
+        <p class="eyebrow book-count" data-book-count aria-live="polite"></p>
+        <button type="button" class="book-btn" data-book-next aria-label="Next page">→</button>
+      </div>
+      <div class="book-rail" data-book-rail role="group" aria-label="Jump to a page"></div>
+      <div class="book-actions">
+        <button type="button" class="paren paren-ghost" data-book-full aria-pressed="false"><span class="roll" data-text="Full screen"><span>Full screen</span></span></button>
+      </div>
+    </section>
+
+    <section class="section work" id="work" aria-labelledby="work-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">(02)</p>
         <h2 id="work-title">Selected <span class="serif">work</span></h2>
         <p class="section-note" data-work-count></p>
       </div>
@@ -76,7 +99,7 @@
 
     <section class="section motion" id="motion" aria-labelledby="motion-title">
       <div class="section-head reveal">
-        <p class="eyebrow">(02)</p>
+        <p class="eyebrow">(03)</p>
         <h2 id="motion-title">In <span class="serif">motion</span></h2>
         <p class="section-note">Plays muted. Tap any clip to watch it full screen.</p>
       </div>
@@ -85,7 +108,7 @@
 
     <section class="section about" id="about" aria-labelledby="about-title">
       <div class="section-head reveal">
-        <p class="eyebrow">(03)</p>
+        <p class="eyebrow">(04)</p>
         <h2 id="about-title">About</h2>
       </div>
       <div class="about-grid">
@@ -102,7 +125,7 @@
     </section>
 
     <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <p class="eyebrow reveal">(04)</p>
+      <p class="eyebrow reveal">(05)</p>
       <h2 class="contact-title reveal" id="contact-title">
         <span class="wm-line"><span>Let’s make</span></span>
         <span class="wm-line"><span class="serif">something</span> <span class="hot">good</span></span>
