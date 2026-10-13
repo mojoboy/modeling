@@ -1,0 +1,59 @@
+// Everything the site says lives here, so updating the portfolio means editing this file, not the page code.
+// Photos and videos come from media.json (made by scripts/prepare_media.py); SHOOTS says which ones go where.
+// Anything left as null is hidden on the page instead of showing a blank.
+
+// Words wrapped in *asterisks* are set in the italic serif accent, like fitcode's headlines.
+export const PROFILE = {
+  name: 'David Babafemi',
+  first: 'David',
+  last: 'Babafemi',
+  handle: 'mb.dayy',
+  instagram: 'https://www.instagram.com/mb.dayy/',
+  role: 'Model',
+  base: 'Washington, DC area',          // shown in the header and footer
+  available: 'Available in DC, Baltimore & New York · open to travel',
+  timeZone: 'America/New_York',
+  email: null,                          // a public booking email, e.g. 'bookings@…' (left out until David picks one)
+  agency: null,                         // e.g. 'Represented by …'
+  heroClip: 'img_1782',                 // the clip in the hero card; any video id from media.json
+  tagline: 'Editorial, menswear and *motion*. New work lands here as it’s finished.',
+  bio: [
+    'David Babafemi is a model working between DC and New York, at home in *editorial*, menswear and moving image.',
+    'This page collects his latest work. New shoots are still in the edit and will land here as they finish.',
+  ],
+};
+
+// Measurements: fill these in and they appear in the stats block. null = hidden.
+export const STATS = [
+  ['Height', null],
+  ['Chest', null],
+  ['Waist', null],
+  ['Inseam', null],
+  ['Shoe', null],
+  ['Hair', null],
+  ['Eyes', null],
+];
+
+// Each shoot lists media ids (the file name without the extension, e.g. img_1781), in the order they show.
+// color: that shoot's accent (title, hover ring). Pick one from its photos; every shoot can differ.
+// Newest shoot first.
+export const SHOOTS = [
+  {
+    id: 'courtyard',
+    title: 'Courtyard',
+    year: 2026,
+    tags: ['Editorial', 'Menswear'],
+    note: 'Tiled pool, banana leaves, a burnt-orange knit and a tan leather duffle.',
+    cover: 'img_1785',
+    media: ['img_1785', 'img_1782', 'img_1781', 'img_1786', 'img_1783'],
+    color: '#FF5B1F',
+  },
+];
+
+// Shoots still being edited: shown as "developing" cards so the page doesn't look finished-but-thin.
+export const IN_EDIT = [
+  { title: 'Shoot 02', note: 'In the edit' },
+  { title: 'Shoot 03', note: 'In the edit' },
+];
+
+export const AVAILABLE_FOR = ['Editorial', 'Lookbook', 'Campaign', 'Runway', 'Brand content', 'Video'];

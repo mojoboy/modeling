@@ -1,0 +1,5 @@
+﻿# Original phone media (full size, GPS inside). scripts/prepare_media.py makes clean copies in site/media/.
+incoming/
+.venv/
+__pycache__/
+previews/
