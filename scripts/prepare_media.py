@@ -8,6 +8,7 @@ Reads incoming/ (originals, never published) and writes site/media/:
                            plus a poster frame (the still shown before the video loads)
 Prints each file's size and checks the outputs really have no location data.
 """
+import hashlib
 import json
 import subprocess
 from pathlib import Path
@@ -73,9 +74,20 @@ def main():
             items.append(dict(file=src.name, **video(src)))
     for it in items:
         print(f"{it['file']}: {it['type']} {it['w']}x{it['h']} | {it['note']}")
-    # The site only needs the web paths; the original filenames and size notes stay out of the published file
-    public = [{k: v for k, v in it.items() if k not in ('file', 'note')} | {'id': Path(it['src']).stem}
-              for it in items]
+    # The site only needs the web paths; the original filenames and size notes stay out of the published file.
+    # Each path gets ?v=<fingerprint of the file>, so a replaced photo gets a new address and browsers
+    # fetch it fresh instead of showing the copy they cached before.
+    def versioned(path):
+        digest = hashlib.sha1((ROOT / 'site' / path).read_bytes()).hexdigest()[:8]
+        return f'{path}?v={digest}'
+
+    public = []
+    for it in items:
+        entry = {k: v for k, v in it.items() if k not in ('file', 'note')} | {'id': Path(it['src']).stem}
+        for key in ('src', 'small', 'fallback', 'poster'):
+            if key in entry:
+                entry[key] = versioned(entry[key])
+        public.append(entry)
     (ROOT / 'site' / 'media.json').write_text(json.dumps(public, indent=1), encoding='utf-8')
 
 

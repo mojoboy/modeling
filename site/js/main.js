@@ -22,7 +22,7 @@ const touch = matchMedia('(hover: none)').matches;
 
 async function loadMedia() {
   try {
-    const res = await fetch('media.json');
+    const res = await fetch('media.json', { cache: 'no-cache' });   // always check for a newer list (cheap: the server answers "unchanged")
     const list = await res.json();
     return new Map(list.map(m => [m.id, m]));
   } catch {
