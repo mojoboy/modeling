@@ -1,14 +1,5 @@
 [
  {
-  "type": "photo",
-  "src": "media/library_suit.webp",
-  "small": "media/library_suit-sm.webp",
-  "fallback": "media/library_suit.jpg",
-  "w": 923,
-  "h": 2000,
-  "id": "library_suit"
- },
- {
   "type": "video",
   "src": "media/img_1782.mp4",
   "poster": "media/img_1782-poster.jpg",
@@ -18,12 +9,30 @@
  },
  {
   "type": "photo",
+  "src": "media/library_suit.webp",
+  "small": "media/library_suit-sm.webp",
+  "fallback": "media/library_suit.jpg",
+  "w": 1334,
+  "h": 2000,
+  "id": "library_suit"
+ },
+ {
+  "type": "photo",
   "src": "media/img_1785.webp",
   "small": "media/img_1785-sm.webp",
   "fallback": "media/img_1785.jpg",
   "w": 1500,
   "h": 2000,
   "id": "img_1785"
+ },
+ {
+  "type": "photo",
+  "src": "media/jersey_10.webp",
+  "small": "media/jersey_10-sm.webp",
+  "fallback": "media/jersey_10.jpg",
+  "w": 432,
+  "h": 648,
+  "id": "jersey_10"
  },
  {
   "type": "photo",
@@ -50,15 +59,6 @@
   "w": 1500,
   "h": 2000,
   "id": "img_1781"
- },
- {
-  "type": "photo",
-  "src": "media/jersey_10.webp",
-  "small": "media/jersey_10-sm.webp",
-  "fallback": "media/jersey_10.jpg",
-  "w": 601,
-  "h": 2000,
-  "id": "jersey_10"
  },
  {
   "type": "photo",

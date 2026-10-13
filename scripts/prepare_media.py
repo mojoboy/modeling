@@ -29,11 +29,12 @@ def photo(src):
         img = ImageOps.exif_transpose(im).convert('RGB')
     img.thumbnail((2000, 2000), Image.LANCZOS)
     stem = src.stem.split('-', 1)[-1].lower()
-    img.save(OUT / f'{stem}.webp', 'WEBP', quality=82, method=6)
+    q = 92 if img.width < 1000 else 82   # tight crops have few pixels to spare, so compress them gently
+    img.save(OUT / f'{stem}.webp', 'WEBP', quality=q, method=6)
     img.save(OUT / f'{stem}.jpg', 'JPEG', quality=85, optimize=True)
     small = img.copy()
     small.thumbnail((900, 900), Image.LANCZOS)   # for grids and the scrolling strip; the full size opens on click
-    small.save(OUT / f'{stem}-sm.webp', 'WEBP', quality=80, method=6)
+    small.save(OUT / f'{stem}-sm.webp', 'WEBP', quality=max(q - 2, 80), method=6)
     for f in (OUT / f'{stem}.webp', OUT / f'{stem}.jpg', OUT / f'{stem}-sm.webp'):
         with Image.open(f) as check:
             assert not check.getexif() and not check.info.get('exif'), f'{f.name} still has metadata'
