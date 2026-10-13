@@ -242,7 +242,8 @@ function activeNav() {
     if (!e.isIntersecting) return;
     chips.forEach(c => c.classList.toggle('on', c.getAttribute('href') === '#' + e.target.id));
   }), { rootMargin: '-45% 0px -50% 0px' });
-  ['top', 'work', 'motion', 'about', 'contact'].forEach(id => {   // 'top' matches no chip, so the hero clears them const s = document.getElementById(id); if (s) io.observe(s); });
+  // 'top' (the hero) matches no chip, so scrolling back up clears the highlight
+  ['top', 'work', 'motion', 'about', 'contact'].forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
 }
 
 /* ---------- Full-screen viewer ---------- */

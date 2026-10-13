@@ -13,7 +13,7 @@ export const PROFILE = {
   base: 'Washington, DC area',          // shown in the header and footer
   available: 'Available in DC, Baltimore & New York · open to travel',
   timeZone: 'America/New_York',
-  email: null,                          // a public booking email, e.g. 'bookings@…' (left out until David picks one)
+  email: 'mojobabafemi@gmail.com',      // public booking email (null hides the button)
   agency: null,                         // e.g. 'Represented by …'
   heroClip: 'img_1782',                 // the clip in the hero card; any video id from media.json
   tagline: 'Editorial, menswear and *motion*. New work lands here as it’s finished.',
@@ -29,9 +29,9 @@ export const STATS = [
   ['Chest', null],
   ['Waist', null],
   ['Inseam', null],
-  ['Shoe', null],
-  ['Hair', null],
-  ['Eyes', null],
+  ['Shoe', '9.5 US'],
+  ['Hair', 'Dark brown'],
+  ['Eyes', 'Brown'],
 ];
 
 // Each shoot lists media ids (the file name without the extension, e.g. img_1781), in the order they show.

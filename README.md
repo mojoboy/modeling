@@ -18,6 +18,11 @@ Any shape works (tall, wide, square, photo or clip): the grid keeps each piece's
 `site/js/content.js` holds every word on the page: bio, tagline, measurements (`STATS`; empty ones stay hidden),
 a booking email (`PROFILE.email`, hidden until set) and the clip shown in the hero (`PROFILE.heroClip`).
 
-## Preview
+## Preview and publish
 
 Serve the `site/` folder with any static server, e.g. `python -m http.server -d site 8010`.
+
+Pushing to `main` publishes to https://mojoboy.github.io/modeling/ through GitHub Actions, but only after
+`scripts/check_published.py` confirms no photo or video in `site/` carries location or other hidden data.
+
+The link preview card (`site/og.jpg`) comes from `scripts/make_share_image.py <media id>`.
