@@ -383,6 +383,8 @@ a:hover .roll::after, a:focus-visible .roll::after { transform: translateY(-100%
   .top { grid-template-columns: 1fr auto; }
   .top-nav { display: none; }
   .hero { grid-template-columns: 1fr; align-items: end; }
+  .wordmark { font-size: clamp(48px, 19.5vw, 150px); }   /* "BABAFEMI" always fits the screen width */
+  .logo { white-space: nowrap; }
   .hero-reel { position: absolute; right: var(--gutter); top: calc(var(--header) + 20px); width: clamp(150px, 46vw, 260px); }
   .scroll-cue { display: none; }
   .section-head { grid-template-columns: 1fr; }
