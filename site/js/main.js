@@ -1,6 +1,6 @@
 // Builds the portfolio from content.js (the words) and media.json (the photos and videos),
-// then wires up the motion: the dot field in the hero, scroll reveals, the "View" cursor and the viewer.
-import { PROFILE, STATS, SHOOTS, IN_EDIT, AVAILABLE_FOR, FEATURE, CAPTIONS } from './content.js';
+// then wires up the motion: scroll reveals, the "View" cursor and the viewer.
+import { PROFILE, STATS, SHOOTS, IN_EDIT, AVAILABLE_FOR } from './content.js';
 import { initBook } from './book.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -80,40 +80,10 @@ function fillText() {
 }
 
 function buildHero(media) {
-  const reelMedia = media.get(PROFILE.heroClip) || [...media.values()].find(m => m.type === 'video');
-  const fig = $('[data-hero-reel]');
-  if (!reelMedia) { fig.remove(); return; }
-  fig.style.aspectRatio = `${reelMedia.w} / ${reelMedia.h}`;
-  const v = videoEl(reelMedia, { autoplay: true });
-  fig.prepend(v);
-  if (!calm) v.play().catch(() => {});
-}
-
-// The featured photos, each shown whole at full width (no crop, so the whole picture is what people see)
-function buildFeature(media) {
-  const band = $('[data-feature]');
-  const pieces = FEATURE.map(id => media.get(id)).filter(Boolean);
-  if (!pieces.length) { band.remove(); return; }
-  band.append(...pieces.map(m => el('figure', { class: 'feature-shot reveal' },
-    photoEl(m, { small: false, alt: CAPTIONS[m.id] || 'New work' }),
-    el('figcaption', {}, el('span', { class: 'eyebrow' }, 'New work'), el('span', { class: 'eyebrow' }, CAPTIONS[m.id] || '')))));
-}
-
-function buildStrip(media) {
-  const track = $('[data-strip]');
-  const items = [...media.values()];
-  const words = [
-    el('span', { class: 'strip-word' }, PROFILE.first),
-    el('span', { class: 'strip-word' }, el('span', { class: 'serif' }, 'portfolio')),
-    el('span', { class: 'strip-word' }, '@' + PROFILE.handle),
-  ];
-  const once = [];
-  items.forEach((m, i) => {
-    once.push(el('div', { class: 'strip-item', style: `--r:${ratio(m)}` }, el('img', { src: m.type === 'video' ? m.poster : (m.small || m.src), alt: '', loading: 'lazy' })));
-    if (i % 2 === 1) once.push(words[(i >> 1) % words.length].cloneNode(true));
-  });
-  // Two copies side by side, so sliding left by half the width loops without a seam
-  track.append(...once, ...once.map(n => n.cloneNode(true)));
+  const photo = media.get(PROFILE.heroPhoto);
+  const fig = $('[data-hero-photo]');
+  if (!photo) { fig.remove(); return; }
+  fig.append(photoEl(photo, { small: false, alt: `${PROFILE.name}, latest shoot` }));
 }
 
 const viewerList = [];   // every piece in page order, for the full-screen viewer
@@ -131,7 +101,7 @@ function buildShoots(media) {
       grid.append(tile(m, index, `${shoot.title}, ${i + 1} of ${ms.length}`));
     });
     const [lead, ...rest] = shoot.title.split(' ');
-    wrap.append(el('article', { class: 'shoot reveal', style: `--shoot-color:${shoot.color || 'var(--orange)'}` },
+    wrap.append(el('article', { class: 'shoot reveal', style: `--shoot-color:${shoot.color || 'var(--accent)'}` },
       el('header', { class: 'shoot-meta' },
         el('h3', { class: 'shoot-title' }, rest.length ? [lead + ' ', el('span', { class: 'serif' }, rest.join(' '))] : el('span', { class: 'serif' }, lead)),
         el('p', { class: 'eyebrow' }, `${shoot.year} · ${ms.filter(m => m.type === 'photo').length} photos · ${ms.filter(m => m.type === 'video').length} clips`),
@@ -308,53 +278,6 @@ function viewer() {
   });
 }
 
-/* ---------- Hero dot field: a halftone grid that swells into color around the pointer ---------- */
-
-function dotField() {
-  const canvas = $('.dots');
-  const ctx = canvas.getContext('2d');
-  const hero = $('.hero');
-  const GAP = 22;
-  let w = 0, h = 0, dpr = 1, running = true, px = -9999, py = -9999, tx = -9999, ty = -9999;
-
-  const size = () => {
-    dpr = Math.min(2, devicePixelRatio || 1);
-    w = hero.clientWidth; h = hero.clientHeight;
-    canvas.width = w * dpr; canvas.height = h * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  };
-  const draw = time => {
-    ctx.clearRect(0, 0, w, h);
-    px += (tx - px) * .12; py += (ty - py) * .12;
-    const t = time / 1000;
-    for (let y = GAP / 2; y < h; y += GAP) {
-      for (let x = GAP / 2; x < w; x += GAP) {
-        const wave = Math.sin(x * .012 + t * .7) * Math.cos(y * .016 - t * .5);     // slow drifting swell
-        const d = Math.hypot(x - px, y - py);
-        const near = Math.max(0, 1 - d / 180);
-        const r = .7 + (wave + 1) * .55 + near * 4.2;
-        if (near > .02) ctx.fillStyle = near > .45 ? `rgba(255,91,31,${.35 + near * .6})` : `rgba(56,211,200,${.18 + near})`;
-        else ctx.fillStyle = `rgba(245,241,232,${.07 + (wave + 1) * .05})`;
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-    if (running && !calm) requestAnimationFrame(draw);
-  };
-
-  size();
-  addEventListener('resize', size);
-  hero.addEventListener('pointermove', e => { const b = hero.getBoundingClientRect(); tx = e.clientX - b.left; ty = e.clientY - b.top; });
-  hero.addEventListener('pointerleave', () => { tx = ty = -9999; });
-  new IntersectionObserver(([e]) => {
-    const was = running;
-    running = e.isIntersecting;
-    if (running && !was && !calm) requestAnimationFrame(draw);
-  }).observe(hero);
-  requestAnimationFrame(draw);
-}
-
 /* ---------- Start ---------- */
 
 (async () => {
@@ -362,8 +285,6 @@ function dotField() {
   clocks();
   const media = await loadMedia();
   buildHero(media);
-  buildFeature(media);
-  buildStrip(media);
   initBook(media);
   buildShoots(media);
   buildReels(media);
@@ -373,6 +294,5 @@ function dotField() {
   viewCursor();
   activeNav();
   viewer();
-  dotField();
   requestAnimationFrame(() => document.body.classList.add('is-ready'));
 })();

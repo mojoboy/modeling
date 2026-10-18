@@ -16,7 +16,7 @@ Any shape works (tall, wide, square, photo or clip): the grid keeps each piece's
 ## Filling in details
 
 `site/js/content.js` holds every word on the page: bio, tagline, measurements (`STATS`; empty ones stay hidden),
-a booking email (`PROFILE.email`, hidden until set) and the clip shown in the hero (`PROFILE.heroClip`).
+a booking email (`PROFILE.email`, hidden until set) and the photo beside the name in the hero (`PROFILE.heroPhoto`).
 
 ## Preview and publish
 

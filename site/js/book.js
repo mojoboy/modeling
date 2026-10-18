@@ -55,7 +55,7 @@ function renderPage(p, index) {
     page.append(
       el('span', 'pg-ribbon'),
       el('p', 'pg-eyebrow', `Book · ${new Date().getFullYear()}`),
-      el('h3', 'pg-cover-name', el('span', '', PROFILE.first), el('span', 'outline', PROFILE.last)),
+      el('h3', 'pg-cover-name', el('span', '', PROFILE.first), el('span', 'accent', PROFILE.last)),
       el('div', 'pg-cover-foot', el('p', 'pg-eyebrow', `${PROFILE.role} · @${PROFILE.handle}`), el('span', 'pg-hint', 'Open', el('i', '', '→'))));
   } else if (p.kind === 'intro') {
     page.append(
@@ -310,8 +310,7 @@ export function initBook(media) {
   function toggleFull() {
     const on = section.classList.toggle('book-full');
     document.body.style.overflow = on ? 'hidden' : '';
-    const roll = fullBtn.querySelector('.roll');
-    roll.dataset.text = roll.firstElementChild.textContent = on ? 'Close' : 'Full screen';
+    fullBtn.textContent = on ? 'Close' : 'Full screen';
     fullBtn.setAttribute('aria-pressed', on);
     if (isSpread() !== (mode === 'spread')) build(); else size();
     book.focus({ preventScroll: true });

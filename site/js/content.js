@@ -15,7 +15,7 @@ export const PROFILE = {
   timeZone: 'America/New_York',
   email: 'mojobabafemi@gmail.com',      // public booking email (null hides the button)
   agency: null,                         // e.g. 'Represented by …'
-  heroClip: 'img_1782',                 // the clip in the hero card; any video id from media.json
+  heroPhoto: 'duo_bags',                // the photo beside the name in the hero; any photo id from media.json
   tagline: 'Editorial, menswear and *motion*. New work lands here as it’s finished.',
   bio: [
     'David Babafemi is a model working between DC and New York, at home in *editorial*, menswear and moving image.',
@@ -46,7 +46,7 @@ export const SHOOTS = [
     note: 'Shot in Marrakesh: a riad courtyard, mirrors on the wall, and leather bags on a worn day bed.',
     cover: 'duo_bags',
     media: ['duo_bags'],
-    color: '#38D3C8',
+    color: '#B8A58A',
   },
   {
     id: 'selects',
@@ -56,7 +56,7 @@ export const SHOOTS = [
     note: 'A hand-painted look on the runway, a black suit in the library, a No. 10 jersey in late sun.',
     cover: 'runway_yellow',
     media: ['runway_yellow', 'library_suit', 'jersey_10'],
-    color: '#FFC23D',
+    color: '#C9B79C',
   },
   {
     id: 'courtyard',
@@ -66,12 +66,9 @@ export const SHOOTS = [
     note: 'Tiled pool, banana leaves, a burnt-orange knit and a tan leather duffle.',
     cover: 'img_1785',
     media: ['img_1785', 'img_1782', 'img_1781', 'img_1786', 'img_1783'],
-    color: '#FF5B1F',
+    color: '#9C9488',
   },
 ];
-
-// Featured photos: shown whole, full width, right under the hero. Ids as in BOOK; newest first.
-export const FEATURE = ['duo_bags'];
 
 // The book: the flip-through portfolio. Pages turn in this order, after the cover and an intro page;
 // a stats card and the back cover close it. Add or reorder media ids here; any photo or clip works.
