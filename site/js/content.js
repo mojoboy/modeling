@@ -39,6 +39,16 @@ export const STATS = [
 // Newest shoot first.
 export const SHOOTS = [
   {
+    id: 'morocco',
+    title: 'Morocco',
+    year: 2026,
+    tags: ['Editorial', 'Accessories'],
+    note: 'Shot in Marrakesh: a riad courtyard, mirrors on the wall, and leather bags on a worn day bed.',
+    cover: 'duo_bags',
+    media: ['duo_bags'],
+    color: '#38D3C8',
+  },
+  {
     id: 'selects',
     title: 'Selects',
     year: 2026,
@@ -79,7 +89,7 @@ export const BOOK = [
 
 // Optional per-piece captions in the book and viewer (otherwise the shoot's title is used).
 export const CAPTIONS = {
-  duo_bags: 'Latest shoot',
+  duo_bags: 'Morocco · Marrakesh',
   runway_yellow: 'Runway · the DO',
   library_suit: 'Library walk',
   jersey_10: 'No. 10',
