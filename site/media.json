@@ -9,6 +9,15 @@
  },
  {
   "type": "photo",
+  "src": "media/duo_bags.webp?v=63a42f4e",
+  "small": "media/duo_bags-sm.webp?v=0bbd2b87",
+  "fallback": "media/duo_bags.jpg?v=9dd460a3",
+  "w": 2000,
+  "h": 1333,
+  "id": "duo_bags"
+ },
+ {
+  "type": "photo",
   "src": "media/library_suit.webp?v=c36dfaea",
   "small": "media/library_suit-sm.webp?v=b250f1cd",
   "fallback": "media/library_suit.jpg?v=9a800a92",

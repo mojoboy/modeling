@@ -60,9 +60,13 @@ export const SHOOTS = [
   },
 ];
 
+// Featured photos: shown whole, full width, right under the hero. Ids as in BOOK; newest first.
+export const FEATURE = ['duo_bags'];
+
 // The book: the flip-through portfolio. Pages turn in this order, after the cover and an intro page;
 // a stats card and the back cover close it. Add or reorder media ids here; any photo or clip works.
 export const BOOK = [
+  'duo_bags',
   'runway_yellow',
   'img_1785',
   'library_suit',
@@ -75,6 +79,7 @@ export const BOOK = [
 
 // Optional per-piece captions in the book and viewer (otherwise the shoot's title is used).
 export const CAPTIONS = {
+  duo_bags: 'Latest shoot',
   runway_yellow: 'Runway · the DO',
   library_suit: 'Library walk',
   jersey_10: 'No. 10',

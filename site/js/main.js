@@ -1,6 +1,6 @@
 // Builds the portfolio from content.js (the words) and media.json (the photos and videos),
 // then wires up the motion: the dot field in the hero, scroll reveals, the "View" cursor and the viewer.
-import { PROFILE, STATS, SHOOTS, IN_EDIT, AVAILABLE_FOR } from './content.js';
+import { PROFILE, STATS, SHOOTS, IN_EDIT, AVAILABLE_FOR, FEATURE, CAPTIONS } from './content.js';
 import { initBook } from './book.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -87,6 +87,16 @@ function buildHero(media) {
   const v = videoEl(reelMedia, { autoplay: true });
   fig.prepend(v);
   if (!calm) v.play().catch(() => {});
+}
+
+// The featured photos, each shown whole at full width (no crop, so the whole picture is what people see)
+function buildFeature(media) {
+  const band = $('[data-feature]');
+  const pieces = FEATURE.map(id => media.get(id)).filter(Boolean);
+  if (!pieces.length) { band.remove(); return; }
+  band.append(...pieces.map(m => el('figure', { class: 'feature-shot reveal' },
+    photoEl(m, { small: false, alt: CAPTIONS[m.id] || 'New work' }),
+    el('figcaption', {}, el('span', { class: 'eyebrow' }, 'New work'), el('span', { class: 'eyebrow' }, CAPTIONS[m.id] || '')))));
 }
 
 function buildStrip(media) {
@@ -352,6 +362,7 @@ function dotField() {
   clocks();
   const media = await loadMedia();
   buildHero(media);
+  buildFeature(media);
   buildStrip(media);
   initBook(media);
   buildShoots(media);

@@ -408,3 +408,10 @@ a:hover .roll::after, a:focus-visible .roll::after, button:hover .roll::after, b
   .wm-word { transform: none; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* New work: featured photos shown whole, full width, never cropped */
+.feature { padding: clamp(40px, 6vw, 80px) var(--gutter) 0; display: grid; gap: clamp(40px, 6vw, 80px); }
+.feature-shot { margin: 0; }
+.feature-shot picture { display: block; }
+.feature-shot img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6); }
+.feature-shot figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; }
