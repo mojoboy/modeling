@@ -45,7 +45,7 @@ export const SHOOTS = [
     tags: ['Editorial', 'Accessories'],
     note: 'Shot in Marrakesh: a riad courtyard, mirrors on the wall, and leather bags on a worn day bed.',
     cover: 'duo_bags',
-    media: ['duo_bags'],
+    media: ['duo_bags', 'morocco_walk'],
     color: '#B8A58A',
   },
   {
@@ -74,6 +74,7 @@ export const SHOOTS = [
 // a stats card and the back cover close it. Add or reorder media ids here; any photo or clip works.
 export const BOOK = [
   'duo_bags',
+  'morocco_walk',
   'runway_yellow',
   'img_1785',
   'library_suit',

@@ -18,6 +18,15 @@
  },
  {
   "type": "photo",
+  "src": "media/morocco_walk.webp?v=060908e9",
+  "small": "media/morocco_walk-sm.webp?v=49d1693b",
+  "fallback": "media/morocco_walk.jpg?v=d5cfbb7f",
+  "w": 1429,
+  "h": 2000,
+  "id": "morocco_walk"
+ },
+ {
+  "type": "photo",
   "src": "media/library_suit.webp?v=c36dfaea",
   "small": "media/library_suit-sm.webp?v=b250f1cd",
   "fallback": "media/library_suit.jpg?v=9a800a92",
