@@ -118,7 +118,7 @@ button { font: inherit; color: inherit; }
 
 .hero {
   position: relative;
-  min-height: 100vh; min-height: 100svh;
+  height: 100vh; height: 100svh;          /* exactly the screen, so the photo always fills it */
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 0 var(--gutter) clamp(84px, 13vh, 130px);
   color: var(--ink);
@@ -126,8 +126,8 @@ button { font: inherit; color: inherit; }
   isolation: isolate;
 }
 .hero-photo { position: absolute; inset: 0; z-index: -1; margin: 0; background: var(--bg-3); }
-.hero-photo picture { display: block; width: 100%; height: 100%; }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.hero-photo picture { position: absolute; inset: 0; }
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 .hero-photo::after {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(to bottom, rgba(16, 15, 14, .6), rgba(16, 15, 14, .05) 28%, rgba(16, 15, 14, .12) 50%, rgba(16, 15, 14, .85));
