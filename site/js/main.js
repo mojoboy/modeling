@@ -1,6 +1,6 @@
 // Builds the portfolio from content.js (the words) and media.json (the photos and videos),
 // then wires up the motion: scroll reveals, the "View" cursor and the viewer.
-import { PROFILE, STATS, SHOOTS, IN_EDIT, AVAILABLE_FOR } from './content.js';
+import { PROFILE, STATS, SHOOTS, IN_EDIT, AVAILABLE_FOR, CAPTIONS } from './content.js';
 import { initBook } from './book.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -84,6 +84,7 @@ function buildHero(media) {
   const fig = $('[data-hero-photo]');
   if (!photo) { fig.remove(); return; }
   fig.append(photoEl(photo, { small: false, alt: `${PROFILE.name}, latest shoot` }));
+  $('[data-hero-caption]').textContent = CAPTIONS[photo.id] || '';
 }
 
 const viewerList = [];   // every piece in page order, for the full-screen viewer

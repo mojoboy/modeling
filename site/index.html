@@ -18,7 +18,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@300..500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Libre+Franklin:wght@300..600&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/book.css">
   <script type="module" src="js/main.js"></script>
@@ -27,7 +27,6 @@
   <a class="skip" href="#work">Skip to the work</a>
 
   <header class="top">
-    <a class="logo" href="#top" aria-label="David Babafemi, back to top">David Babafemi</a>
     <nav class="top-nav" aria-label="Sections">
       <a class="chip" href="#book">Book<sup>01</sup></a>
       <a class="chip" href="#work">Work<sup>02</sup></a>
@@ -35,18 +34,20 @@
       <a class="chip" href="#about">About<sup>04</sup></a>
       <a class="chip" href="#contact">Contact<sup>05</sup></a>
     </nav>
+    <a class="logo" href="#top" aria-label="David Babafemi, back to top">David Babafemi</a>
     <p class="top-clock eyebrow"><span class="live" aria-hidden="true"></span><span data-clock>DC</span></p>
   </header>
 
   <main>
     <section class="hero" id="top" aria-labelledby="hero-title">
+      <figure class="hero-photo" data-hero-photo></figure>
       <div class="hero-inner">
-        <p class="eyebrow hero-kicker reveal">Model <span class="sep">/</span> <span data-base></span></p>
+        <p class="eyebrow hero-kicker">Model <span class="sep">/</span> <span data-base></span></p>
         <h1 class="wordmark" id="hero-title">
           <span class="wm-line"><span class="wm-word" data-first>David</span></span>
           <span class="wm-line"><span class="wm-word wm-accent" data-last>Babafemi</span></span>
         </h1>
-        <div class="hero-row reveal">
+        <div class="hero-row">
           <p class="hero-lede" data-tagline></p>
           <div class="hero-ctas">
             <a class="btn btn-solid" href="#book">Open the book</a>
@@ -54,8 +55,7 @@
           </div>
         </div>
       </div>
-      <figure class="hero-photo reveal" data-hero-photo></figure>
-      <a class="scroll-cue eyebrow" href="#book">Scroll</a>
+      <a class="hero-cue" href="#book"><span data-hero-caption></span><span>Discover</span></a>
     </section>
 
     <section class="section book-section" id="book" aria-labelledby="book-title">
