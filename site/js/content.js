@@ -45,7 +45,7 @@ export const SHOOTS = [
     tags: ['Editorial', 'Accessories'],
     note: 'Shot in Marrakesh: a riad courtyard, mirrors on the wall, and leather bags on a worn day bed.',
     cover: 'duo_bags',
-    media: ['duo_bags', 'morocco_walk'],
+    media: ['duo_bags', 'morocco_walk', 'morocco_door', 'morocco_desert', 'morocco_pair'],
     color: '#B8A58A',
   },
   {
@@ -75,6 +75,9 @@ export const SHOOTS = [
 export const BOOK = [
   'duo_bags',
   'morocco_walk',
+  'morocco_door',
+  'morocco_desert',
+  'morocco_pair',
   'runway_yellow',
   'img_1785',
   'library_suit',

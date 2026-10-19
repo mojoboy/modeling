@@ -1,11 +1,38 @@
 [
  {
+  "type": "photo",
+  "src": "media/morocco_door.webp?v=520d6f19",
+  "small": "media/morocco_door-sm.webp?v=2e4421e6",
+  "fallback": "media/morocco_door.jpg?v=f946ec82",
+  "w": 1429,
+  "h": 2000,
+  "id": "morocco_door"
+ },
+ {
   "type": "video",
   "src": "media/img_1782.mp4?v=282debd3",
   "poster": "media/img_1782-poster.jpg?v=f10a5c96",
   "w": 608,
   "h": 1080,
   "id": "img_1782"
+ },
+ {
+  "type": "photo",
+  "src": "media/morocco_desert.webp?v=0dca238f",
+  "small": "media/morocco_desert-sm.webp?v=72341239",
+  "fallback": "media/morocco_desert.jpg?v=ff2ea350",
+  "w": 1333,
+  "h": 2000,
+  "id": "morocco_desert"
+ },
+ {
+  "type": "photo",
+  "src": "media/morocco_pair.webp?v=e04efdee",
+  "small": "media/morocco_pair-sm.webp?v=e2a92c13",
+  "fallback": "media/morocco_pair.jpg?v=1bf2f293",
+  "w": 2000,
+  "h": 1429,
+  "id": "morocco_pair"
  },
  {
   "type": "photo",
