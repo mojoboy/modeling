@@ -27,7 +27,7 @@ export const PROFILE = {
 export const STATS = [
   ['Height', '6′3″'],
   ['Weight', '160 lb'],
-  ['Chest', null],
+  ['Chest', '41 in'],
   ['Waist', '30 in'],
   ['Inseam', null],
   ['Shoe', '9.5 US'],
