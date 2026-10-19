@@ -25,7 +25,8 @@ export const PROFILE = {
 
 // Measurements: fill these in and they appear in the stats block. null = hidden.
 export const STATS = [
-  ['Height', null],
+  ['Height', '6′3″'],
+  ['Weight', '160 lb'],
   ['Chest', null],
   ['Waist', null],
   ['Inseam', null],
